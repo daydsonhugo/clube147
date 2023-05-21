@@ -1,0 +1,152 @@
+* {
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box
+}
+
+:root {
+	font-size: 16px
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+	
+::-webkit-scrollbar-track {
+	background-color: #2c2c31;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #9e9ea0;
+	border-top-left-radius: 100%;
+	border-bottom-left-radius: 100%;
+}
+
+@keyframes entering {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+	color: rgb(214, 214, 73);
+	background: rgb(23, 22, 18);
+    font-family: 'Lato', sans-serif;
+
+	display: grid;
+	grid-template-areas: "logo exemplares";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100vh;
+}
+
+nav {
+	padding: 15px;
+	grid-area: exemplares;
+
+	overflow-y: scroll;
+	/*animation: entering 0.7s ease-in-out;*/
+}
+
+.titleNav {
+	margin-bottom: 50px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.vehicles {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 45px;
+
+	align-items: center;
+	justify-content: center;
+	text-align: center;		
+
+	text-decoration: none;
+}
+
+.vehicles small {
+	color:rgb(235, 235, 150);
+	font-size: 0.75rem;
+}
+
+.vehicles h1 {
+	color: rgb(235, 235, 150);
+}	
+
+.vehicles img {
+	/*width: 50%;*/
+	border-radius: 3%;
+	text-align: center;
+	transition: transform 0.3s ease-in-out;
+}
+
+.vehicles:hover img {
+	transform: scale(1.1);
+}
+
+.vehicles p {
+	font-size: 0.93rem;
+	color:rgb(235, 235, 150);
+	line-height: 22px;
+	width: 50%;
+	text-align: justify;
+
+}
+
+aside img {
+	width: 50%;
+}
+
+aside {
+	grid-area: logo;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 20px;
+
+	border-right: solid 1px;
+	border-image: linear-gradient(#36360c, #ffffaa, #36360c ) 1;
+}
+
+aside * {
+	animation: entering 0.7s ease-in-out;
+}
+
+@media (max-width: 768px){	
+	:root {
+		font-size: 14px;
+	  }
+	  
+	body{
+		grid-template-columns: 1fr;
+		grid-template-rows: 0.2fr 0.8fr;
+		grid-template-areas: 
+		"logo"
+	    "exemplares";
+
+	}
+
+	aside{
+		border-right: none;
+		padding: 32px, 12px;
+	}
+
+	nav{
+		overflow: visible;
+		padding: 22px;
+	}
+
+	.vehicles p {
+		width: 90%;
+	
+	}
+}
